@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from app import db
 
 class Reading(db.Model):
@@ -9,8 +11,8 @@ class Reading(db.Model):
     battery = db.Column(db.String(64))
     brand = db.Column(db.String(64))
     model = db.Column(db.String(64))
-    time = db.Column(db.DateTime)
+    time = db.Column(db.DateTime, default=datetime.utcnow)
     temp_c = db.Column(db.Numeric)
 
     def __repr__(self):
-        return f'<Reading: thermometer id {self.t_id}r, {self.temp_c}°C>'
+        return f'<Reading: thermometer id {self.therm_id}, {self.temp_c}°C>'

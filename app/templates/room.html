@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}{{ name|title }}!{% endblock %}
+{% block title %}Temperature in {{ name|title }}!{% endblock %}
 
 {% block page_content %}
     <div class="page-header">
-        <h1>Brrr, isn't it chilly in {{ name|title }}!</h1>
+        <h1>It is currently {{ reading.temp_c|round(1)}}°C in {{ name|title }}!</h1>
     </div>
 {% endblock %}
