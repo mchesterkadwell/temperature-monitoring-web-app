@@ -1,0 +1,30 @@
+body {
+    background-color: #343a40;
+}
+
+.page-header {
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    border: none;
+}
+
+h1 {
+    font-size: 24px;
+    color: whitesmoke;
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px black;
+}
+
+.panel-temperature .panel-heading {
+    background-color: #00ced1; /* dark turquoise */
+}
+
+.panel-weather .panel-heading {
+    background-color: #ff9e38; /* orange */
+}
+
+.panel-temperature p {
+    font-size: 40px;
+}

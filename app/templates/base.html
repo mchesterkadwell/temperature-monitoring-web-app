@@ -1,31 +1,21 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}Temperature Dashboard{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" type="text/css"
+      href="{{ url_for('static',filename='css/main.css') }}">
+<link rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
+{% block title %}Tamar Weather Station{% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle"
-             data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Tamar</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}

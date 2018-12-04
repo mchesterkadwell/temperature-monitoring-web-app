@@ -10,3 +10,10 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
                               'sqlite:///' + os.path.join(basedir, 'tamar.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    MQTT_BROKER_URL = os.environ.get('MQTT_BROKER_URL') or 'localhost'
+    MQTT_BROKER_PORT = int(os.environ.get('MQTT_BROKER_PORT')) or 1883
+    MQTT_CLIENT_ID = os.environ.get('MQTT_CLIENT_ID') or 'flask_mqtt'
+
+    PERSON_NAME = os.environ.get('PERSON_NAME') or 'Nemo'
+    LOCATION = os.environ.get('LOCATION') or 'London'

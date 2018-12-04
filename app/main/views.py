@@ -2,12 +2,17 @@ from datetime import datetime
 from flask import render_template
 from . import main
 from app.models import Reading
+from config import Config
 
 
 @main.route('/')
 @main.route('/index')
 def index():
-    return render_template('index.html', current_time=datetime.utcnow())
+    return render_template('index.html',
+                           name=Config.PERSON_NAME,
+                           location=Config.LOCATION,
+                           current_time=datetime.utcnow()
+                           )
 
 
 @main.route('/room/<name>')
