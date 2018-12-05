@@ -57,6 +57,7 @@ def handle_mqtt_message(client, userdata, message):
         topic=message.topic,
         payload=message.payload.decode(),
         qos=message.qos,
+        retained=message.retain,
     )
     socketio.emit('mqtt_message', data=data)
 

@@ -28,3 +28,7 @@ h1 {
 .panel-temperature p {
     font-size: 40px;
 }
+
+.retained {
+    min-height: 14px;
+}

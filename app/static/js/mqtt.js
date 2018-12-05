@@ -8,10 +8,21 @@ $(document).ready(function () {
     socket.emit('subscribe', data = data);
 
     socket.on('mqtt_message', function (data) {
+        console.log(data);
+
         var topic = data['topic'].replace(/\//g, '-');
+        var retained = data['retained'];
         var payload = JSON.parse(data['payload']);
         var temperature = payload.temperature_C;
-        $('#' + topic).text(temperature + ' °C');
+
+        $temperature = $('#' + topic);
+        $temperature.text(temperature + ' °C');
+
+        $retained = $('#' + topic + '-retained .glyphicon-time' );
+        if (retained === 0) {
+            $retained.hide();
+        }
+
     })
 
 });
