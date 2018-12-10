@@ -17,6 +17,18 @@ h1 {
     border-bottom: solid 1px black;
 }
 
+.panel-body {
+    min-height: 15vw;
+}
+
+.panel-temperature .panel-body {
+    background-color: #e6ffff;
+}
+
+.panel-weather .panel-body {
+    background-color: #fff3e6;
+}
+
 .panel-temperature .panel-heading {
     background-color: #00ced1; /* dark turquoise */
 }
@@ -25,10 +37,53 @@ h1 {
     background-color: #ff9e38; /* orange */
 }
 
+.panel-weather div.weather-forecast {
+    padding: 0;
+}
+
+.panel-weather div.weather-forecast p.weather-phrase {
+    font-size: 1.75vw;
+    padding-left: 5px;
+}
+
+.panel-weather div.weather-forecast p.weather-temperature {
+    font-size: 1.8vw;
+    padding-left: 5px;
+}
+
 .panel-temperature p {
-    font-size: 40px;
+    font-size: 2.5em;
+    font-size: 4vw;
+    margin-top: 15px;
+}
+
+.panel-temperature p span.temperature-units {
+    font-size: 3vw;
+    vertical-align: text-top;
+}
+
+.panel-weather p span.temperature-units {
+    font-size: 1.3vw;
+    vertical-align: text-top;
+}
+
+.panel-heading h3.panel-title {
+    font-size: 2.2vw;
+}
+
+.panel-title span.glyphicon {
+    font-size: 2.5vw;
+}
+
+.panel-body span.glyphicon {
+    font-size: 2vw;
+    margin-top: 5px;
 }
 
 .retained {
     min-height: 14px;
+}
+
+.weather-icon {
+    min-height: 5em;
 }

@@ -17,3 +17,7 @@ class Config:
 
     PERSON_NAME = os.environ.get('PERSON_NAME') or 'Nemo'
     LOCATION = os.environ.get('LOCATION') or 'London'
+
+    WEATHER_API_KEY = os.environ.get('WEATHER_API_KEY') or None
+    WEATHER_LOCATION_KEY = os.environ.get('WEATHER_LOCATION_KEY') or '328328' # London
+    WEATHER_DATASERVICE_URL = os.environ.get('WEATHER_DATASERVICE_URL') or None

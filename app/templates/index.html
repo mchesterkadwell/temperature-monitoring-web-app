@@ -27,10 +27,14 @@
             <div class="panel-body">
                 <div class="col-xs-12">
                     <div class="row">
-                        <p id="house-thermometers-top_bedroom">--.- °C</p>
+                        <p class="text-center temperature-text"
+                           id="house-thermometers-top_bedroom">--.-
+                            <span class="temperature-units"> °C</span>
+                        </p>
                     </div>
-                    <div class="row retained" id="house-thermometers-top_bedroom-retained">
-                         <span class="glyphicon glyphicon-time pull-right"></span>
+                    <div class="row retained"
+                         id="house-thermometers-top_bedroom-retained">
+                        <span class="glyphicon glyphicon-time pull-right"></span>
                     </div>
                 </div>
             </div>
@@ -47,10 +51,14 @@
             <div class="panel-body">
                 <div class="col-xs-12">
                     <div class="row">
-                        <p  id="house-thermometers-outside">--.- °C</p>
+                        <p class="text-center" id="house-thermometers-outside">
+                            --.-
+                            <span class="temperature-units"> °C</span>
+                        </p>
                     </div>
-                    <div class="row retained" id="house-thermometers-outside-retained">
-                         <span class="glyphicon glyphicon-time pull-right"></span>
+                    <div class="row retained"
+                         id="house-thermometers-outside-retained">
+                        <span class="glyphicon glyphicon-time pull-right"></span>
                     </div>
                 </div>
             </div>
@@ -59,22 +67,56 @@
     <div class="col-xs-4">
         <div class="panel panel-default panel-weather">
             <div class="panel-heading">
-                <h3 class="panel-title">Current Weather in {{ location|title }}</h3>
+                <h3 class="panel-title">Weather in {{ location|title }} {{ 'Today' if current_conditions.is_day else 'Tonight' }}</h3>
             </div>
             <div class="panel-body">
-                <div class="col-xs-12">
+                <div class="col-xs-5">
                     <div class="row">
-                        <p>The local date and time is {{
-                            moment(current_time).format('LLL') }}.</p>
-                        <p>That was {{
-                            moment(current_time).fromNow(refresh=True) }}</p>
+                        <img class="weather-icon"
+                             src="/static/weather_icons/{{ current_conditions.icon }}.svg">
                     </div>
+                </div>
+                <div class="col-xs-7">
+                    <div class="col-xs-12 weather-forecast">
+                        <div class="row">
+                            <p class="weather-phrase">{{ forecast.day_phrase if current_conditions.is_day else forecast.night_phrase }}</p>
+                        </div>
+                    </div>
+
+                    {% if current_conditions.is_day %}
+                        <div class="row">
+                            <div class="col-xs-6 weather-forecast">
+                                <p class="weather-temperature">&#11014; {{ forecast.high_temp }}
+                                    <!--<span class="temperature-units">°C</span>-->
+                                </p>
+                            </div>
+                            <div class="col-xs-6 weather-forecast">
+                                <p class="weather-temperature">&#9730; {{ forecast.day_rain_percent }}
+                                    <span class="temperature-units">%</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="row">
+                            <div class="col-xs-6 weather-forecast">
+                                <p class="weather-temperature">&#11015; {{ forecast.low_temp }}
+                                    <!--<span class="temperature-units">°C</span>-->
+                                </p>
+                            </div>
+                            <div class="col-xs-6 weather-forecast">
+                                <p class="weather-temperature">&#9730; {{ forecast.night_rain_percent }}
+                                    <span class="temperature-units">%</span>
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 
-</div> <!-- first row -->
+</div> <!-- end of first row -->
 
 <div class="row"> <!-- second row -->
 
@@ -89,10 +131,14 @@
             <div class="panel-body">
                 <div class="col-xs-12">
                     <div class="row">
-                        <p id="house-thermometers-master_bedroom">--.- °C</p>
+                        <p class="text-center"
+                           id="house-thermometers-master_bedroom">--.-
+                            <span class="temperature-units"> °C</span>
+                        </p>
                     </div>
-                    <div class="row retained" id="house-thermometers-master_bedroom-retained">
-                         <span class="glyphicon glyphicon-time pull-right"></span>
+                    <div class="row retained"
+                         id="house-thermometers-master_bedroom-retained">
+                        <span class="glyphicon glyphicon-time pull-right"></span>
                     </div>
                 </div>
             </div>
@@ -110,10 +156,14 @@
             <div class="panel-body">
                 <div class="col-xs-12">
                     <div class="row temperature">
-                        <p id="house-thermometers-living_room">--.- °C</p>
+                        <p class="text-center"
+                           id="house-thermometers-living_room">--.-
+                            <span class="temperature-units"> °C</span>
+                        </p>
                     </div>
-                    <div class="row retained" id="house-thermometers-living_room-retained">
-                         <span class="glyphicon glyphicon-time pull-right"></span>
+                    <div class="row retained"
+                         id="house-thermometers-living_room-retained">
+                        <span class="glyphicon glyphicon-time pull-right"></span>
                     </div>
                 </div>
             </div>
@@ -121,17 +171,24 @@
     </div>
 
     <div class="col-xs-4">
-        <div class="panel panel-default panel-weather">
+        <div class="panel panel-default panel-temperature">
             <div class="panel-heading">
-                <h3 class="panel-title">Tomorrow's Weather in {{ location|title }}</h3>
+                <h3 class="panel-title">
+                    <span class="glyphicon glyphicon-wrench pull-right"></span>
+                    Garage
+                </h3>
             </div>
             <div class="panel-body">
                 <div class="col-xs-12">
-                    <div class="row">
-                        <p>The local date and time is {{
-                            moment(current_time).format('LLL') }}.</p>
-                        <p>That was {{
-                            moment(current_time).fromNow(refresh=True) }}</p>
+                    <div class="row temperature">
+                        <p class="text-center"
+                           id="house-thermometers-garage">--.-
+                            <span class="temperature-units"> °C</span>
+                        </p>
+                    </div>
+                    <div class="row retained"
+                         id="house-thermometers-garage-retained">
+                        <span class="glyphicon glyphicon-time pull-right"></span>
                     </div>
                 </div>
             </div>

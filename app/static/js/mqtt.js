@@ -16,7 +16,8 @@ $(document).ready(function () {
         var temperature = payload.temperature_C;
 
         $temperature = $('#' + topic);
-        $temperature.text(temperature + ' °C');
+        $temperature.text(temperature);
+        $temperature.append('<span class="temperature-units"> °C</span>');
 
         $retained = $('#' + topic + '-retained .glyphicon-time' );
         if (retained === 0) {
