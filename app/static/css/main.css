@@ -19,6 +19,8 @@ h1 {
 
 .panel-body {
     min-height: 15vw;
+    padding: 10px;
+
 }
 
 .panel-temperature .panel-body {
@@ -42,24 +44,30 @@ h1 {
 }
 
 .panel-weather div.weather-forecast p.weather-phrase {
-    font-size: 1.75vw;
+    font-size: 2vw;
     padding-left: 5px;
 }
 
 .panel-weather div.weather-forecast p.weather-temperature {
-    font-size: 1.8vw;
-    padding-left: 5px;
+    font-size: 2vw;
 }
 
 .panel-temperature p {
     font-size: 2.5em;
-    font-size: 4vw;
-    margin-top: 15px;
+    font-size: 5vw;
+    margin-top: 10px;
+}
+
+.panel-temperature p span {
+    vertical-align: text-top;
 }
 
 .panel-temperature p span.temperature-units {
     font-size: 3vw;
-    vertical-align: text-top;
+}
+
+.panel-temperature p span.humidity-units {
+    font-size: 2vw;
 }
 
 .panel-weather p span.temperature-units {
@@ -80,10 +88,15 @@ h1 {
     margin-top: 5px;
 }
 
+.panel-body.two-readings .row.humidity p {
+    font-size: 3vw;
+}
+
 .retained {
     min-height: 14px;
 }
 
 .weather-icon {
     min-height: 5em;
+    padding-top: 10px;
 }

@@ -87,7 +87,7 @@
                         <div class="row">
                             <div class="col-xs-6 weather-forecast">
                                 <p class="weather-temperature">&#11014; {{ forecast.high_temp }}
-                                    <!--<span class="temperature-units">°C</span>-->
+                                    <span class="temperature-units">°</span>
                                 </p>
                             </div>
                             <div class="col-xs-6 weather-forecast">
@@ -101,7 +101,7 @@
                         <div class="row">
                             <div class="col-xs-6 weather-forecast">
                                 <p class="weather-temperature">&#11015; {{ forecast.low_temp }}
-                                    <!--<span class="temperature-units">°C</span>-->
+                                    <span class="temperature-units">°</span>
                                 </p>
                             </div>
                             <div class="col-xs-6 weather-forecast">
@@ -132,8 +132,7 @@
                 <div class="col-xs-12">
                     <div class="row">
                         <p class="text-center"
-                           id="house-thermometers-master_bedroom">--.-
-                            <span class="temperature-units"> °C</span>
+                           id="house-thermometers-master_bedroom">--.-<span class="temperature-units">&#8239;°C</span>
                         </p>
                     </div>
                     <div class="row retained"
@@ -157,8 +156,7 @@
                 <div class="col-xs-12">
                     <div class="row temperature">
                         <p class="text-center"
-                           id="house-thermometers-living_room">--.-
-                            <span class="temperature-units"> °C</span>
+                           id="house-thermometers-living_room">--.-<span class="temperature-units">&#8239;°C</span>
                         </p>
                     </div>
                     <div class="row retained"
@@ -178,18 +176,25 @@
                     Garage
                 </h3>
             </div>
-            <div class="panel-body">
-                <div class="col-xs-12">
+            <div class="panel-body two-readings">
+                <div class="col-xs-8">
                     <div class="row temperature">
-                        <p class="text-center"
-                           id="house-thermometers-garage">--.-
-                            <span class="temperature-units"> °C</span>
+                        <p class="text-right"
+                           id="house-thermometers-garage">--.-<span class="temperature-units">&#8239;°C</span>
                         </p>
                     </div>
-                    <div class="row retained"
-                         id="house-thermometers-garage-retained">
-                        <span class="glyphicon glyphicon-time pull-right"></span>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row humidity">
+                        <p class="text-center"
+                           id="house-thermometers-garage-humidity">--<span class="humidity-units">&#8239;%</span>
+                        </p>
                     </div>
+                </div>
+                <div class="col-xs-12">
+                <div class="row retained" id="house-thermometers-garage-retained">
+                    <span class="glyphicon glyphicon-time pull-right"></span>
+                </div>
                 </div>
             </div>
         </div>
