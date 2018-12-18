@@ -56,18 +56,23 @@ h1 {
     font-size: 2.5em;
     font-size: 5vw;
     margin-top: 10px;
+    text-align: center;
 }
 
-.panel-temperature p span {
+.panel-temperature div.two-readings p.text-temperature {
+    text-align: right;
+}
+
+.panel-temperature p.text-temperature::after {
+    content: '\00A0\00B0\0043'; /* Non-breaking space, degree sign, C*/
+    font-size: 3vw;
     vertical-align: text-top;
 }
 
-.panel-temperature p span.temperature-units {
-    font-size: 3vw;
-}
-
-.panel-temperature p span.humidity-units {
+.panel-temperature p.text-humidity::after {
+    content: '\00A0\0025'; /* Non-breaking space, percentage*/
     font-size: 2vw;
+    vertical-align: text-top;
 }
 
 .panel-weather p span.temperature-units {

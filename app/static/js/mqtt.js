@@ -18,11 +18,11 @@ $(document).ready(function () {
 
         $temperature = $('#' + topic);
         $temperature.text(temperature);
-        $temperature.append('<span class="temperature-units">&#8239;°C</span>');
 
-        $temperature = $('#' + topic + '-humidity');
-        $temperature.text(humidity);
-        $temperature.append('<span class="humidity-units">&#8239;%</span>');
+        if (typeof humidity !== 'undefined') {
+            $temperature = $('#' + topic + '-humidity');
+            $temperature.text(humidity);
+        }
 
         $retained = $('#' + topic + '-retained .glyphicon-time' );
         if (retained === 0) {
