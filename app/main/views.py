@@ -1,6 +1,8 @@
 from datetime import datetime
 from flask import render_template
-from . import main, weather_api
+from flask import jsonify
+from app import cache
+from . import main, weather_api, cache_timeout
 from app.models import Reading
 from config import Config
 
@@ -17,6 +19,14 @@ def index():
                            current_conditions=current_conditions,
                            forecast=forecast,
                            )
+
+@main.route('/weather')
+@cache_timeout.modify(timeout=10800, begin='22:00:00', end='06:00:00')
+@cache.cached(timeout=3600) # 1 hour
+def weather():
+    current_conditions = weather_api.get_current_conditions()._asdict()
+    forecast = weather_api.get_forecast()._asdict()
+    return jsonify(current_conditions, forecast)
 
 
 @main.route('/room/<name>')

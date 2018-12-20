@@ -21,3 +21,7 @@ class Config:
     WEATHER_API_KEY = os.environ.get('WEATHER_API_KEY') or None
     WEATHER_LOCATION_KEY = os.environ.get('WEATHER_LOCATION_KEY') or '328328' # London
     WEATHER_DATASERVICE_URL = os.environ.get('WEATHER_DATASERVICE_URL') or None
+
+    CACHE_TYPE = os.environ.get('CACHE_TYPE') or 'simple'
+    CACHE_DEFAULT_TIMEOUT = os.environ.get('CACHE_DEFAULT_TIMEOUT') or 300
+    CACHE_DIR = os.environ.get('CACHE_DIR') or None

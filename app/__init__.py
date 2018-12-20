@@ -7,6 +7,7 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_mqtt import Mqtt
 from flask_socketio import SocketIO
+from flask_caching import Cache
 from config import Config
 
 eventlet.monkey_patch()
@@ -17,6 +18,7 @@ bootstrap = Bootstrap()
 moment = Moment()
 mqtt = Mqtt()
 socketio = SocketIO()
+cache = Cache()
 
 
 def create_app(config_class=Config):
@@ -29,6 +31,7 @@ def create_app(config_class=Config):
     moment.init_app(app)
     mqtt.init_app(app)
     socketio.init_app(app)
+    cache.init_app(app)
 
     from app.main import main as main_blueprint
     app.register_blueprint(main_blueprint)
