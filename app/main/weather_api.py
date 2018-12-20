@@ -24,8 +24,8 @@ def get_forecast():
     resp = requests.get(url)
     if resp.status_code == 200:
         data = resp.json()
-        return Forecast(data['DailyForecasts'][0]['Day']['LongPhrase'],
-                        data['DailyForecasts'][0]['Night']['LongPhrase'],
+        return Forecast(data['DailyForecasts'][0]['Day']['ShortPhrase'],
+                        data['DailyForecasts'][0]['Night']['ShortPhrase'],
                         data['DailyForecasts'][0]['Temperature']['Maximum']['Value'],
                         data['DailyForecasts'][0]['Temperature']['Minimum']['Value'],
                         data['DailyForecasts'][0]['Day']['PrecipitationProbability'],

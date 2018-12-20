@@ -6,6 +6,8 @@
         src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script type="text/javascript" charset="utf-8"
         src="{{ url_for('static',filename='js/mqtt.js') }}"></script>
+<script type="text/javascript" charset="utf-8"
+        src="{{ url_for('static',filename='js/weather.js') }}"></script>
 {% endblock %}
 
 {% block page_content %}
@@ -58,56 +60,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-4">
-        <div class="panel panel-default panel-weather">
-            <div class="panel-heading">
-                <h3 class="panel-title">Weather in {{ location|title }} {{ 'Today' if current_conditions.is_day else 'Tonight' }}</h3>
-            </div>
-            <div class="panel-body">
-                <div class="col-xs-5">
-                    <div class="row">
-                        <img class="weather-icon"
-                             src="/static/weather_icons/{{ current_conditions.icon }}.svg">
-                    </div>
-                </div>
-                <div class="col-xs-7">
-                    <div class="col-xs-12 weather-forecast">
-                        <div class="row">
-                            <p class="weather-phrase">{{ forecast.day_phrase if current_conditions.is_day else forecast.night_phrase }}</p>
-                        </div>
-                    </div>
-
-                    {% if current_conditions.is_day %}
-                        <div class="row">
-                            <div class="col-xs-6 weather-forecast">
-                                <p class="weather-temperature">&#11014; {{ forecast.high_temp }}
-                                    <span class="temperature-units">°</span>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 weather-forecast">
-                                <p class="weather-temperature">&#9730; {{ forecast.day_rain_percent }}
-                                    <span class="temperature-units">%</span>
-                                </p>
-                            </div>
-                        </div>
-
-                    {% else %}
-                        <div class="row">
-                            <div class="col-xs-6 weather-forecast">
-                                <p class="weather-temperature">&#11015; {{ forecast.low_temp }}
-                                    <span class="temperature-units">°</span>
-                                </p>
-                            </div>
-                            <div class="col-xs-6 weather-forecast">
-                                <p class="weather-temperature">&#9730; {{ forecast.night_rain_percent }}
-                                    <span class="temperature-units">%</span>
-                                </p>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-4" id="weather">
+        <!-- weather inserted here by ajax -->
     </div>
 
 </div> <!-- end of first row -->
